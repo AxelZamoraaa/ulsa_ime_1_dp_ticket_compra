@@ -31,6 +31,7 @@ _____
 
 | Dato | ¿Qué valores son válidos? | ¿Por qué? |
 |---|---|---|
+| Nombre del producto | _____ | _____ |
 | Precio | _____ | _____ |
 | Cantidad | _____ | _____ |
 | Descuento (%) | _____ | _____ |
@@ -148,6 +149,12 @@ _____
 **¿Hubo algún paso de mi receta que me costó traducir a C++? ¿Cuál y por qué?**
 _____
 
+**Formato del ticket: ¿qué ancho usé en `std::setw` y por qué? ¿Qué pasa si uso un número menor que el largo de la etiqueta más larga?**
+_____
+
+**¿Convertí el ancho de las líneas del ticket (36) en una constante? ¿Cómo la llamé? Si no, ¿por qué?**
+_____
+
 ## 11. Experimentos y depuración (Fase 3)
 
 **Experimento A: depuración de `calcularDescuento`**
@@ -177,6 +184,9 @@ _____
 - [ ] Función que siempre devuelve la misma cadena
 
 **¿Por qué elegí esa opción?**
+_____
+
+**¿Qué otras partes del programa podrían necesitar el nombre de quien atiende? (un mensaje de bienvenida, un ticket de devolución...)**
 _____
 
 **Si mañana atiende otra persona, ¿en cuántos lugares tengo que cambiar el nombre?**

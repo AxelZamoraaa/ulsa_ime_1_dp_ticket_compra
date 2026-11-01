@@ -98,6 +98,7 @@ ulsa_ime_1_dp_ticket_compra/
 
 **Restricciones: ¿qué debe cumplirse?**
 
+- ¿Puede el nombre del producto estar vacío? ¿Puede tener espacios, como "Goma de borrar"? ¿Qué revisa `leerCadena` por ti?
 - ¿Puede un precio ser 0 o negativo? ¿Y la cantidad?
 - ¿La cantidad puede tener decimales? ¿Qué función de `utilerias.h` te conviene usar para leerla?
 - ¿Entre qué valores debe estar el porcentaje de descuento?
@@ -374,7 +375,7 @@ Compila, prueba y haz un commit después de cada paso:
 
 ### Así debería verse tu ticket
 
-Puedes darle tu propio estilo, pero debe mostrar todos estos datos, **alineados**:
+Puedes darle tu propio estilo, pero debe mostrar todos estos datos, **alineados**. Este ejemplo es la salida del caso 2 de la tabla de pruebas (Cuaderno, 50, 2, 10): ejecuta tu programa con esos mismos datos y pega lo que muestra en la sección 9 de tu `README.md`.
 
 ```
 ====================================
@@ -419,7 +420,7 @@ Le atendio: Ana Lopez
 > Precio:     $50.00
 > ```
 > **Ojo:** `std::setw` solo afecta a **lo siguiente** que se imprime, así que tienes que ponerlo en cada línea. `std::left`, en cambio, se queda activo.
-> **Pregunta guía:** ¿por qué 12? Cuenta los caracteres de la etiqueta más larga de tu ticket. ¿Qué pasa si usas un número menor que esa cantidad?
+> **Pregunta guía:** ¿por qué 12? Cuenta los caracteres de la etiqueta más larga de tu ticket. ¿Qué pasa si usas un número menor que esa cantidad? Contesta en la sección 10 de tu `README.md`.
 
 > **Nota de C++: dibujar las líneas del ticket.**
 > En lugar de escribir 36 signos `=` a mano, puedes crear una cadena que repite un carácter:
@@ -427,7 +428,7 @@ Le atendio: Ana Lopez
 > std::cout << std::string(36, '=') << "\n";   // imprime 36 veces el signo =
 > std::cout << std::string(36, '-') << "\n";   // imprime 36 guiones
 > ```
-> **Pregunta guía:** el 36 aparece en varias líneas. ¿Debería ser una constante? ¿Cómo la llamarías?
+> **Pregunta guía:** el 36 aparece en varias líneas. ¿Debería ser una constante? ¿Cómo la llamarías? Contesta en la sección 10 de tu `README.md`.
 
 ### La línea "Le atendio"
 
