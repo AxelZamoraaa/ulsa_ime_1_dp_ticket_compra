@@ -1,6 +1,7 @@
 # Práctica: Ticket de compra
 
 > Llena cada sección en la fase que se indica. Las instrucciones completas están en `PRACTICA.md`.
+> Si una pregunta no aplica (por ejemplo, no hiciste el Experimento C o no tuviste dudas), escribe `No aplica`. Si te sobran filas en una tabla, bórralas.
 
 ## 1. Descripción del problema (Fase 1)
 <!-- Explica con tus palabras qué hace tu programa y para qué serviría en la vida real. Máximo 4 líneas. -->
@@ -60,7 +61,7 @@ _____
 
 | TDA | Datos (¿qué tiene?) | Operaciones (¿qué se puede hacer con él?) |
 |---|---|---|
-| Producto | nombre (texto), _____, _____ | calcular su subtotal, _____ |
+| Producto | nombre (texto), _____, _____ | calcular su subtotal |
 | _____ | _____ | _____ |
 
 **Jerarquías:** una tienda vende productos por pieza (un cuaderno) y productos por peso (un kilo de tortillas). ¿Los dos son productos? ¿Qué datos tienen en común y cuál cambia?
@@ -173,6 +174,9 @@ _____
 **Experimento B: al cambiar el IVA a 8 %, ¿cuántas líneas tuve que cambiar? ¿Qué mejoraría?**
 _____
 
+**¿Mi ticket seguía diciendo `IVA (16%)`? ¿Qué hice al respecto?**
+_____
+
 **Experimento C (opcional): al cambiar el parámetro dentro de `calcularIVA`, ¿cambió la variable de `main()`? ¿Por qué?**
 _____
 
@@ -237,6 +241,8 @@ _____
 **¿Volví a correr toda la tabla de pruebas después del cambio? ¿Todo siguió pasando?**
 _____
 
+**¿Agregué `calcularPorcentaje` a mi tabla de módulos (sección 7)?** Sí / No
+
 **¿En qué otro programa podría reutilizar `calcularPorcentaje`?**
 _____
 
@@ -254,7 +260,7 @@ _____
 
 ## 16. Reto obligatorio (Fase 4)
 
-**¿Qué reto elegí?** (número y nombre) _____
+**¿Qué reto elegí?** (número y nombre; el 4 no cuenta como obligatorio) _____
 
 **¿Por qué lo elegí?**
 _____
@@ -307,7 +313,7 @@ _____
 
 ## 21. Lista de verificación antes de entregar (Fase 5)
 
-- [ ] Llené las secciones 1 a 20 (no quedan `_____`)
+- [ ] Llené las secciones 1 a 20 (no quedan `_____`; escribí `No aplica` donde corresponde)
 - [ ] Completé el árbol de análisis descendente y la tabla de módulos
 - [ ] Escribí en `RECETA.md` la receta de `main` y la de cada módulo, antes de programar
 - [ ] Cada bloque de `main.cpp` tiene su comentario `// Paso N`, de acuerdo con mi receta

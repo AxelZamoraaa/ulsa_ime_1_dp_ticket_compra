@@ -36,7 +36,7 @@
 | 4 | Probar, generalizar y mejorar |
 | 5 | Publicar en GitHub |
 
-**Cómo usar el `README.md`:** ya viene en el repositorio base, con espacios en blanco (`_____`). Lo vas llenando fase por fase; cada fase de esta guía te indica qué secciones llenar. No es necesario que uses el archivo README.md, también puedes copiar el contenido y hacerlo en un editor de texto de tu elección. Solo asegúrate de subir el archivo equivalente a tu repositorio.
+**Cómo usar el `README.md`:** ya viene en el repositorio base, con espacios en blanco (`_____`). Lo vas llenando fase por fase; cada fase de esta guía te indica qué secciones llenar. No es necesario que uses el archivo README.md, también puedes copiar el contenido y hacerlo en un editor de texto de tu elección. Solo asegúrate de subir el archivo equivalente a tu repositorio. Si una pregunta no aplica (por ejemplo, no hiciste el Experimento C o no tuviste dudas), escribe `No aplica`. Si te sobran filas en una tabla, bórralas.
 
 **Commits a lo largo de la práctica:** en cada fase encontrarás líneas marcadas como **Commit sugerido**, con un mensaje de ejemplo. Haz el commit en ese momento, no todo al final. Así tu historial cuenta cómo construiste tu solución, paso a paso.
 
@@ -116,7 +116,7 @@ En la sección 5 de tu `README.md`, completa la tabla del TDA **Producto**:
 
 | TDA | Datos (¿qué tiene?) | Operaciones (¿qué se puede hacer con él?) |
 |---|---|---|
-| Producto | nombre (texto), ______, ______ | calcular su subtotal, ______ |
+| Producto | nombre (texto), ______, ______ | calcular su subtotal |
 
 Después, **identifica tú una segunda entidad** del problema (pista: ¿qué es lo que se imprime al final?) y llena su fila: sus datos y sus operaciones.
 
@@ -482,7 +482,7 @@ Elige uno y, en la sección 12 de tu `README.md`, **justifica tu elección**.
 
 > **Nota de C++: evita los números mágicos.**
 > La tasa del IVA (16) es un valor que no cambia durante la ejecución: declárala como constante, por ejemplo `const double TASA_IVA = 16.0;`, y úsala por su nombre.
-> **Experimento B (obligatorio):** en las ciudades de la frontera norte el IVA es de 8 %. Cambia tu programa para calcular con 8 %. ¿Cuántas líneas tuviste que cambiar? Si fue más de una, ¿qué mejorarías? Al terminar, regresa al 16 %.
+> **Experimento B (obligatorio):** en las ciudades de la frontera norte el IVA es de 8 %. Cambia tu programa para calcular con 8 %. ¿Cuántas líneas tuviste que cambiar? Si fue más de una, ¿qué mejorarías? Revisa también tu ticket: ¿sigue diciendo `IVA (16%)`? Al terminar, regresa al 16 %.
 > **Commit sugerido** (si mejoraste algo): `Usa la constante TASA_IVA`
 
 > **Nota de C++: paso por valor.**
@@ -563,7 +563,7 @@ Ahora que tu programa funciona, compara `calcularDescuento` y `calcularIVA` lado
 - ¿Qué cambia entre una y otra? ¿Solo los datos, o también la operación?
 - ¿Podrías escribir **una sola** función `calcularPorcentaje` que sirva para los dos casos? ¿Qué recibiría y qué devolvería?
 
-Escribe `calcularPorcentaje` en `ticket.h` y úsala para calcular el descuento y el IVA. Después **vuelve a correr toda tu tabla de pruebas**: si antes pasaba y ahora no, tu cambio rompió algo.
+Escribe `calcularPorcentaje` en `ticket.h` y úsala para calcular el descuento y el IVA. Después **vuelve a correr toda tu tabla de pruebas**: si antes pasaba y ahora no, tu cambio rompió algo. Por último, agrega `calcularPorcentaje` a tu tabla de módulos (sección 7 de tu `README.md`).
 
 En la sección 14 de tu `README.md` anota: la receta de `calcularPorcentaje`, cómo quedaron el descuento y el IVA después del cambio, y **en qué otro programa** podrías reutilizar esta función (una propina, una comisión, el porcentaje de batería de un robot...).
 
@@ -594,14 +594,14 @@ Si algún principio no se cumple, mejóralo, vuelve a correr las pruebas y regí
 
 ### Retos (uno es obligatorio)
 
-**Elige al menos uno** de los siguientes retos y complétalo: **el que tú quieras es obligatorio**; los demás son opcionales, para tu insatisfacción positiva. En la sección 16 de tu `README.md` anota cuál elegiste, por qué y cómo lo resolviste.
+**Elige al menos uno** de los siguientes retos y complétalo: **el que tú quieras es obligatorio**, excepto el 4, que no cuenta como reto obligatorio porque no se programa; los demás son opcionales, para tu insatisfacción positiva. En la sección 16 de tu `README.md` anota cuál elegiste, por qué y cómo lo resolviste.
 
 Antes de programar un reto, agrega primero los pasos nuevos a tu receta en `RECETA.md`.
 
-1. Muestra en el ticket el porcentaje de descuento aplicado, por ejemplo `Descuento (10%): $10.00`, sin perder la alineación.
+1. Muestra en el ticket el porcentaje de descuento aplicado, por ejemplo `Descuento (10%): $10.00`, sin perder la alineación. Pistas: `Descuento (10%):` es más larga que las demás etiquetas, ¿qué ancho necesitas ahora en `std::setw`? Y como `std::fixed` y `std::setprecision(2)` siguen activos, ¿cómo evitas que el porcentaje salga como `10.00%`?
 2. Tus tres ciclos de validación se parecen mucho. **Generaliza:** escribe una función `leerDecimalEnRango(mensaje, minimo, maximo)` que pida un número hasta que esté dentro del rango, y úsala para el precio y el descuento. ¿Necesitarías otra para la cantidad? ¿Por qué?
 3. Alinea los importes **a la derecha**, como en los tickets reales (pista: `std::right`). ¿Qué tienes que cambiar en `imprimirTicket`?
-4. `imprimirTicket` recibe muchos parámetros. ¿Cuántos son? ¿Qué pasaría si el ticket tuviera que mostrar 10 datos más? Escribe tu opinión y propón una solución; en la Unidad VII veremos una forma de agruparlos.
+4. *(Opcional, no cuenta como el obligatorio)* `imprimirTicket` recibe muchos parámetros. ¿Cuántos son? ¿Qué pasaría si el ticket tuviera que mostrar 10 datos más? Escribe tu opinión y propón una solución; en la Unidad VII veremos una forma de agruparlos.
 5. Permite capturar **varios productos** en un mismo ticket. ¿Qué módulos puedes reutilizar sin cambiarlos? ¿Cuáles tienes que modificar?
 
 **Commit sugerido:** `Agrega el reto: <nombre corto del reto>`, por ejemplo `Agrega el reto: porcentaje de descuento en el ticket`
@@ -649,7 +649,7 @@ También puedes usar GitHub Desktop como lo hemos hecho antes.
 
 ## Lista de verificación antes de entregar
 
-- [ ] Llené las secciones 1 a 20 de mi `README.md` (no quedan `_____`)
+- [ ] Llené las secciones 1 a 20 de mi `README.md` (no quedan `_____`; escribí `No aplica` donde corresponde)
 - [ ] Completé el árbol de análisis descendente y la tabla de módulos
 - [ ] Escribí en `RECETA.md` la receta de `main` y la de cada módulo, antes de programar
 - [ ] Cada bloque de `main.cpp` tiene su comentario `// Paso N`, de acuerdo con mi receta
