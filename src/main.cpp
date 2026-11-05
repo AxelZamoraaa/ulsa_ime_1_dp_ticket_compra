@@ -1,14 +1,3 @@
-// Práctica: Ticket de compra
-// main() solo coordina: pide los datos, llama a los módulos y muestra el ticket.
-// Deja el comentario "// Paso N" sobre cada bloque, con la numeración de TU receta.
-//
-// Compilar (desde la carpeta del proyecto):
-//   g++ -Wall -Wextra -std=c++17 -Iinclude src/main.cpp -o ticket
-// Ejecutar:
-//   macOS:   ./ticket
-//   Windows: .\ticket.exe
-
-// ¿Recuerdas qué hace iostream?
 #include <iostream>
 #include <string>
 
