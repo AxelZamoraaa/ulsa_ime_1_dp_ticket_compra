@@ -46,19 +46,7 @@ int main() {
         iva = calcularIVA(baseIVA);
         total = baseIVA + iva;
 
-
-        inline void imprimirTicket (std:: string nombre, double preciio, int cantidad, double subtotal, double descuentoMonto, double iva, double total) {
-        
-            const int ANCHO_TICKET = 36;
-            const int std::string VENDEDOR = "tu nombre";
-            
-            std::cout << std::fixed << std::setprecision(2);
-            std::cout << std::string (ANCHO_TICKET, '=') << "\n";
-            std::cout << " TICKET DE COMPRA\n";
-            std::cout << std::string (ANCHO_TICKET, '=') << "\n";
-
-
-        imprimirTicket (nombre, precio, cantidad, subtotal, desucentoMonto, iva, total);
+        imprimirTicket (nombre, precio, cantidad, subtotal, descuentoMonto, iva, total);
 
         
     
