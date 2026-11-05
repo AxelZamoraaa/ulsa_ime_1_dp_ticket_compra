@@ -14,6 +14,7 @@ inline double calcularDescuento(double subtotal, double porcentaje) {
     return subtotal * porcentaje;
 }
 
+
 inline double calcularIVA(double base) {
     return base * (TASA_IVA / 100.0);
 }
