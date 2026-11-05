@@ -33,7 +33,7 @@ int main() {
             cantidad = leerEntero ("Cantidad: ");
         }
 
-        descuentoPorcentaje = leerDecimal ("Descuento (0 a 100):") ;
+        descuentoPorcentaje = leerDecimal ("Descuento del 0 al 1 (decimales ejemplo: 0.5 = 50%):") ;
         while (descuentoPorcentaje <0 || descuentoPorcentaje > 100) {
             std::cout << "el descuento debe estar entre 0 y 100\n";
             descuentoPorcentaje = leerDecimal ("Descuento (0 a 100):") ;
@@ -48,6 +48,8 @@ int main() {
 
         imprimirTicket (nombre, precio, cantidad, subtotal, descuentoMonto, iva, total);
 
+        descuentoMonto = calcularDescuento(subtotal, descuentoPorcentaje);
+std::cout << "[DEBUG] descuentoMonto = " << descuentoMonto << "\n";
         
     
     return 0;
