@@ -330,7 +330,7 @@ Lo encontré probando con 90 % de descuento: el descuento salió como $18000.00,
 ## 20. Commits (Fase 5)
 
 **¿Cuántos commits hice durante la práctica?** 
-17
+19
 
 **Si hice menos de 3, ¿por qué?**
 No
