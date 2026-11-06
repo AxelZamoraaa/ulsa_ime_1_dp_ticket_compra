@@ -5,24 +5,24 @@
 
 ## 1. Descripción del problema (Fase 1)
 
-Es un programa en C++ que pide el nombre, el precio, la cantidad y el porcentaje de descuento de un producto. Con esos datos calcula el subtotal, el descuento, el IVA (16 %) y el total, y los muestra en forma de ticket. Serviría en una papelería o tienda para generar el ticket de una compra.
+Es un programa en C++ que pide el nombre, el precio, la cantidad y el porcentaje de descuento de un producto. Con esos datos calcula el subtotal, el descuento, el IVA (16 %) y el total, y los muestra en forma de ticket. Serviría en una papelería o tienda para generar el ticket de una compra
 
 ## 2. Entradas y salidas (Fase 1)
 
 **Entradas:**
 
-| Entrada | Tipo de dato | Función de `utilerias.h` |
+| Entrada | Tipo de dato | Función de utilerias.h |
 |---|---|---|
-| Nombre del producto | `std::string` | `leerCadena` |
-| Precio | `double` | `leerDecimal` |
-| Cantidad | `int` | `leerEntero` |
-| Descuento (%) | `double` | `leerDecimal` |
+| Nombre del producto | std::string | leerCadena |
+| Precio | double | leerDecimal |
+| Cantidad | int | leerEntero |
+| Descuento (%) | double | leerDecimal |
 
 **Salida** (¿qué datos muestra el ticket?):
-El nombre del producto, el precio, la cantidad, el subtotal, el descuento en pesos, el IVA (16 %), el total y la línea "Le atendio" con el nombre de quien atiende.
+El nombre del producto, el precio, la cantidad, el subtotal, el descuento en pesos, el IVA (16 %), el total y la línea "Le atendio" con el nombre de quien atiende
 
 **¿El IVA se calcula sobre el subtotal o sobre lo que queda después del descuento? ¿Por qué?**
-Sobre lo que queda después del descuento (subtotal menos descuento). El descuento baja el precio de venta, y el IVA se cobra sobre lo que realmente se vende. Así coinciden los resultados esperados de la tabla de pruebas, por ejemplo 14.40 en el caso 2.
+Sobre lo que queda después del descuento (subtotal menos descuento). El descuento baja el precio de venta, y el IVA se cobra sobre lo que realmente se vende. Así coinciden los resultados esperados de la tabla de pruebas, por ejemplo 14.40 en el caso 2
 
 ## 3. Restricciones e invariante (Fases 1 y 2)
 
@@ -36,16 +36,16 @@ Sobre lo que queda después del descuento (subtotal menos descuento). El descuen
 | Descuento (%) | De 0 a 100 | Menos de 0 sería un aumento, y más de 100 dejaría el total negativo |
 
 **¿Qué hace mi programa si el usuario escribe un dato fuera de rango?**
-Muestra un mensaje de error y vuelve a pedir el dato con un ciclo `while`. Lo repite hasta que el dato sea válido, y el programa no termina.
+Muestra un mensaje de error y vuelve a pedir el dato con un ciclo while. Lo repite hasta que el dato sea válido, y el programa no termina.
 
 **¿Puede el total salir negativo? ¿Por qué?**
-No. Como el descuento está entre 0 y 100 %, el descuento nunca es mayor que el subtotal, así que subtotal menos descuento es siempre 0 o más. El IVA tampoco es negativo, por lo que el total es 0 o más.
+No. Como el descuento está entre 0 y 100 %, el descuento nunca es mayor que el subtotal, así que subtotal menos descuento es siempre 0 o más. El IVA tampoco es negativo, por lo que el total es 0 o más
 
-**Invariante 1** (después del ciclo que valida el precio, ¿qué es siempre cierto sobre `precio`?):
-Que `precio` es mayor que 0.
+**Invariante 1** (después del ciclo que valida el precio, ¿qué es siempre cierto sobre precio?):
+Que `precio` es mayor que 0
 
 **Invariante 2** (¿qué relación se cumple siempre entre el subtotal, el descuento, el IVA y el total?):
-`total = subtotal - descuento + IVA`, donde el descuento está entre 0 y el subtotal, y el IVA es el 16 % de (subtotal - descuento).
+total = subtotal - descuento + IVA, donde el descuento está entre 0 y el subtotal, y el IVA es el 16 % de (subtotal - descuento)
 
 ## 4. Casos resueltos a mano (Fase 1)
 
@@ -69,36 +69,35 @@ Sí, los dos son productos. Tienen en común el nombre y el precio. Lo que cambi
 
 ```
 Generar ticket de compra
-├── 1. Mostrar bienvenida
-├── 2. Pedir los datos
-│     ├── 2.1 Pedir el nombre del producto (ya existe: leerCadena)
-│     ├── 2.2 Pedir el precio (y validar que sea mayor que 0) (ya existe: leerDecimal)
-│     ├── 2.3 Pedir la cantidad (y validar que sea un entero mayor que 0) (ya existe: leerEntero)
-│     └── 2.4 Pedir el descuento (y validar que esté entre 0 y 100) (ya existe: leerDecimal)
-├── 3. Calcular los importes
-│     ├── 3.1 Calcular el subtotal (ya existe: calcularSubtotal)
-│     ├── 3.2 Calcular el descuento (ya existe: calcularDescuento)
-│     ├── 3.3 Calcular la base del IVA (subtotal menos descuento)
-│     ├── 3.4 Calcular el IVA
-│     └── 3.5 Calcular el total
-└── 4. Imprimir el ticket
+1. Mostrar bienvenida
+2. Pedir los datos
+    2.1 Pedir el nombre del producto (ya existe: leerCadena)
+    2.2 Pedir el precio (y validar que sea mayor que 0) (ya existe: leerDecimal)    2.3 Pedir la cantidad (y validar que sea un entero mayor que 0) (ya existe: leerEntero)
+    2.4 Pedir el descuento (y validar que esté entre 0 y 100) (ya existe: leerDecimal)
+3. Calcular los importes
+    3.1 Calcular el subtotal (ya existe: calcularSubtotal)
+    3.2 Calcular el descuento (ya existe: calcularDescuento)
+    3.3 Calcular la base del IVA (subtotal menos descuento)
+    3.4 Calcular el IVA
+    3.5 Calcular el total
+ 4. Imprimir el ticket
 ```
 
 **Análisis ascendente: ¿qué partes del árbol ya estaban resueltas por una función que existe? ¿Cuáles?**
-Pedir el nombre, el precio, la cantidad y el descuento ya estaban resueltos por `leerCadena`, `leerDecimal` y `leerEntero` de `utilerias.h`. Calcular el subtotal y el descuento ya estaban resueltos por `calcularSubtotal` y `calcularDescuento` de `ticket.h`.
+Pedir el nombre, el precio, la cantidad y el descuento ya estaban resueltos por leerCadena, leerDecimal y leerEntero de utilerias.h. Calcular el subtotal y el descuento ya estaban resueltos por calcularSubtotal y calcularDescuento de ticket.h
 
 **¿Alguna parte del árbol hacía más de una cosa? ¿Cómo la dividiste?**
-"Pedir los datos" hacía cuatro cosas, así que la dividí en pedir el nombre, el precio, la cantidad y el descuento. "Calcular el IVA" también hacía dos cosas (restar el descuento y sacar el 16 %), y la dividí en calcular la base del IVA y calcular el IVA.
+"Pedir los datos" hacía cuatro cosas, así que la dividí en pedir el nombre, el precio, la cantidad y el descuento. "Calcular el IVA" también hacía dos cosas (restar el descuento y sacar el 16 %), y la dividí en calcular la base del IVA y calcular el IVA
 
 ## 7. Módulos y receta (Fase 2)
 
 | Módulo | ¿Qué recibe? | ¿Qué devuelve? | ¿Función o procedimiento? |
 |---|---|---|---|
-| `calcularSubtotal` | precio, cantidad | el subtotal | Función |
-| `calcularDescuento` | subtotal, porcentaje | el monto del descuento | Función |
-| `calcularIVA` | la base del IVA (subtotal menos descuento) | el monto del IVA | Función |
-| `imprimirTicket` | nombre, precio, cantidad, subtotal, descuento, IVA, total | nada | Procedimiento |
-| `calcularPorcentaje` | una cantidad y un porcentaje | esa parte de la cantidad | Función |
+| calcularSubtotal | precio, cantidad | el subtotal | Función |
+| calcularDescuento | subtotal, porcentaje | el monto del descuento | Función |
+| calcularIVA | la base del IVA (subtotal menos descuento) | el monto del IVA | Función |
+| imprimirTicket | nombre, precio, cantidad, subtotal, descuento, IVA, total | nada | Procedimiento |
+| calcularPorcentaje | una cantidad y un porcentaje | esa parte de la cantidad | Función |
 
 **¿Probé mi receta a mano con mis 3 casos?** Sí
 **¿Tuve que corregirla? ¿Qué cambié?** No tuve que corregirla.
@@ -127,97 +126,95 @@ Ejecutar en Windows:
 
 ## 9. Ejemplo de ejecución (Fase 3)
 
-```
 Bienvenido al ticket
-Ingrese el nombre del producto: Cuaderno
-Precio: 50
+Ingrese el nombre del producto: papel
+Precio: 100
 Cantidad: 2
-Descuento (0 a 100):10
+Descuento del 0 al 1 (decimales ejemplo: 0.5 = 50%):0.2
 ====================================
-          TICKET DE COMPRA
+TICKET DE COMPRA
 ====================================
-Producto:   Cuaderno
-Precio:     $50.00
+Producto:   papel
+Precio:     $100.00
 Cantidad:   2
 ------------------------------------
-Subtotal:   $100.00
-Descuento:  $10.00
-IVA (16%):  $14.40
+Subtotal:   $200.00
+Descuento:  $40.00
+IVA (16%):  $25.60
 ------------------------------------
-TOTAL:      $104.40
+TOTAL:      $185.60
 ------------------------------------
 Le atendio: Axel
 ====================================
-```
 
 ## 10. De la receta al código (Fase 3)
 
 | Paso de la receta | Módulo o instrucción de C++ que lo implementa |
 |---|---|
-| 1. Mensaje de bienvenida | `std::cout << "Bienvenido al ticket\n";` en `main` |
-| 2.1 Pedir el nombre | `nombre = leerCadena(...)` |
-| 2.2 Pedir y validar el precio | `leerDecimal(...)` con `while (precio <= 0)` |
-| 2.3 Pedir y validar la cantidad | `leerEntero(...)` con `while (cantidad <= 0)` |
-| 2.4 Pedir y validar el descuento | `leerDecimal(...)` con `while (descuentoPorcentaje < 0 \|\| descuentoPorcentaje > 100)` |
-| 3.1 Calcular el subtotal | `calcularSubtotal(precio, cantidad)` |
-| 3.2 Calcular el descuento | `calcularDescuento(subtotal, descuentoPorcentaje)` |
-| 3.3 Calcular la base del IVA | `baseIVA = subtotal - descuentoMonto;` |
-| 3.4 Calcular el IVA | `calcularIVA(baseIVA)` |
-| 3.5 Calcular el total | `total = baseIVA + iva;` |
-| 4. Imprimir el ticket | `imprimirTicket(...)` |
-| 5. Terminar el programa | `return 0;` |
+| 1. Mensaje de bienvenida | std::cout << "Bienvenido al ticket\n"; en main |
+| 2.1 Pedir el nombre | nombre = leerCadena(...) |
+| 2.2 Pedir y validar el precio | leerDecimal(...) con while (precio <= 0) |
+| 2.3 Pedir y validar la cantidad | leerEntero(...) con while (cantidad <= 0) |
+| 2.4 Pedir y validar el descuento | leerDecimal(...) con while (descuentoPorcentaje < 0 \|\| descuentoPorcentaje > 100) |
+| 3.1 Calcular el subtotal | calcularSubtotal(precio, cantidad) |
+| 3.2 Calcular el descuento | calcularDescuento(subtotal, descuentoPorcentaje) |
+| 3.3 Calcular la base del IVA | baseIVA = subtotal - descuentoMonto; |
+| 3.4 Calcular el IVA | calcularIVA(baseIVA) |
+| 3.5 Calcular el total | total = baseIVA + iva; |
+| 4. Imprimir el ticket | imprimirTicket(...) |
+| 5. Terminar el programa | return 0; |
 
 **¿Hubo algún paso de mi receta que me costó traducir a C++? ¿Cuál y por qué?**
-Más que traducir la receta, me costó escribir sin errores de sintaxis: me faltó un `;`, escribí mal el nombre de una variable (`desucentoMonto`) y la constante `TASA_IVA` con espacio y dos puntos en lugar de `=`. Aprendí a leer el archivo y la línea que marca el compilador.
+Más que traducir la receta, me costó escribir sin errores de sintaxis: me faltó un ;, escribí mal el nombre de una variable (desucentoMonto) y la constante TASA_IVA con espacio y dos puntos en lugar de =. Aprendí a leer el archivo y la línea que marca el compilador.
 
-**Formato del ticket: ¿qué ancho usé en `std::setw` y por qué? ¿Qué pasa si uso un número menor que el largo de la etiqueta más larga?**
-Usé 12. La etiqueta más larga es "Le atendio:" con 11 caracteres, y le sumo un espacio para separarla del valor. Si uso un número menor que 11, la etiqueta no cabe, ocupa más espacio del reservado y el valor queda pegado a ella y desalineado de las demás líneas.
+**Formato del ticket: ¿qué ancho usé en std::setw y por qué? ¿Qué pasa si uso un número menor que el largo de la etiqueta más larga?**
+Usé 12. La etiqueta más larga es "Le atendio:" con 11 caracteres, y le sumo un espacio para separarla del valor. Si uso un número menor que 11, la etiqueta no cabe, ocupa más espacio del reservado y el valor queda pegado a ella y desalineado de las demás líneas
 
 **¿Convertí el ancho de las líneas del ticket (36) en una constante? ¿Cómo la llamé? Si no, ¿por qué?**
-Sí, la llamé `ANCHO_TICKET`. Así, si quiero cambiar el ancho, lo cambio en un solo lugar.
+Sí, la llamé ANCHO_TICKET. Así, si quiero cambiar el ancho, lo cambio en un solo lugar
 
 ## 11. Experimentos y depuración (Fase 3)
 
-**Experimento A: depuración de `calcularDescuento`**
+**Experimento A: depuración de calcularDescuento**
 
 | Paso de depuración | Lo que hice o encontré |
 |---|---|
 | 1. Reproduce: ¿con qué datos falló? | Con precio 100, cantidad 2 y descuento 90 %. El ticket mostró un descuento de $18000.00 y un total negativo (-20648.00). Con 0 % no fallaba. |
-| 2. Aísla: ¿qué valor intermedio estaba mal? (salidas `[DEBUG]`) | `descuentoMonto` salía como 18000 en lugar de 180. El subtotal (200) y el porcentaje (90) llegaban bien, así que el error estaba en `calcularDescuento`. |
+| 2. Aísla: ¿qué valor intermedio estaba mal? (salidas [DEBUG]) | descuentoMonto salía como 18000 en lugar de 180. El subtotal (200) y el porcentaje (90) llegaban bien, así que el error estaba en calcularDescuento. |
 | 3. Explica: ¿cuál era la causa? | La función multiplicaba el subtotal por el porcentaje (200 × 90) sin dividir entre 100. |
-| 4. Corrige: ¿qué cambiaste? | Cambié la fórmula a `subtotal * porcentaje / 100`. |
-| 5. Limpia: ¿comentaste tus salidas `[DEBUG]`? | Sí, las comenté con `//`. |
+| 4. Corrige: ¿qué cambiaste? | Cambié la fórmula a subtotal * porcentaje / 100. |
+| 5. Limpia: ¿comentaste tus salidas [DEBUG]? | no. |
 
 **La prueba con 0 % pasó aunque la función tenía un error. ¿Qué me enseña eso sobre elegir mis casos de prueba?**
-Con 0 % cualquier fórmula que multiplique da 0, así que el error no se notaba. Me enseña que debo probar con valores distintos de 0, valores normales (como 10 % o 90 %) y valores límite (100 %), y no solo el caso más fácil.
+Con 0 % cualquier fórmula que multiplique da 0, así que el error no se notaba. Me enseña que debo probar con valores distintos de 0, valores normales (como 10 % o 90 %) y valores límite (100 %), y no solo el caso más fácil
 
 **Experimento B: al cambiar el IVA a 8 %, ¿cuántas líneas tuve que cambiar? ¿Qué mejoraría?**
-Cambié 1 línea: la constante `TASA_IVA` en `ticket.h`. Mejoraría hacer que el texto del ticket tome el porcentaje de la constante.
+Cambié 1 línea: la constante TASA_IVA en ticket.h. Mejoraría hacer que el texto del ticket tome el porcentaje de la constante
 
-**¿Mi ticket seguía diciendo `IVA (16%)`? ¿Qué hice al respecto?**
-Sí, seguía diciendo `IVA (16%)` porque ese texto lo escribí a mano en `imprimirTicket`. La mejora sería construir la etiqueta usando `TASA_IVA`. Al terminar regresé la tasa a 16 %.
+**¿Mi ticket seguía diciendo IVA (16%)? ¿Qué hice al respecto?**
+Sí, seguía diciendo IVA (16%) porque ese texto lo escribí a mano en imprimirTicket. La mejora sería construir la etiqueta usando TASA_IVA. Al terminar regresé la tasa a 16 %
 
-**Experimento C (opcional): al cambiar el parámetro dentro de `calcularIVA`, ¿cambió la variable de `main()`? ¿Por qué?**
-No aplica.
+**Experimento C (opcional): al cambiar el parámetro dentro de calcularIVA, ¿cambió la variable de main()? ¿Por qué?**
+No lo hice
 
 ## 12. La constante "Le atendio" (Fase 3)
 
 **¿Dónde definí la constante con mi nombre?** (marca una)
-- [x] Constante local dentro de `imprimirTicket`
-- [ ] Constante a nivel de la librería, en `ticket.h`
+- [x] Constante local dentro de imprimirTicket
+- [ ] Constante a nivel de la librería, en ticket.h
 - [ ] Función que siempre devuelve la misma cadena
 
 **¿Por qué elegí esa opción?**
-Porque por ahora solo `imprimirTicket` usa el nombre, y así el dato queda en un solo lugar, junto a donde se usa, sin exponerlo al resto del programa.
+Porque por ahora solo imprimirTicket usa el nombre, y así el dato queda en un solo lugar, junto a donde se usa, sin exponerlo al resto del programa
 
 **¿Qué otras partes del programa podrían necesitar el nombre de quien atiende? (un mensaje de bienvenida, un ticket de devolución...)**
-El mensaje de bienvenida, un ticket de devolución o un reporte de ventas del día.
+El mensaje de bienvenida, un ticket de devolución o un reporte de ventas del día
 
 **Si mañana atiende otra persona, ¿en cuántos lugares tengo que cambiar el nombre?**
-En 1 lugar: la constante dentro de `imprimirTicket`.
+En 1 lugar: la constante dentro de imprimirTicket
 
 **Si el nombre se leyera del teclado o de un archivo, ¿cuánto código tendría que cambiar con mi opción?**
-Habría que cambiar `imprimirTicket` para que reciba el nombre como parámetro y también la llamada en `main`. Con una constante local no puedo cambiarlo sin tocar la función.
+Habría que cambiar imprimirTicket para que reciba el nombre como parámetro y también la llamada en main. Con una constante local no puedo cambiarlo sin tocar la función
 
 ## 13. Tabla de pruebas (Fase 4)
 
@@ -238,17 +235,17 @@ Habría que cambiar `imprimirTicket` para que reciba el nombre como parámetro y
 | 13 | Caso propio 2: Borrador, precio 3, cantidad 1, descuento 50 % | 3.00 / 1.50 / 0.24 / 1.74 | COMPLETAR | COMPLETAR |
 
 **En el caso 4 el IVA real es 3.1984. ¿Por qué mi ticket muestra 3.20?**
-Porque `std::fixed` y `std::setprecision(2)` redondean el número a dos decimales solo al mostrarlo. La variable sigue valiendo 3.1984.
+Porque std::fixed y std::setprecision(2) redondean el número a dos decimales solo al mostrarlo. La variable sigue valiendo 3.1984
 
 **En el caso 10, ¿el ticket siguió alineado? Si no, ¿qué corregí?**
-Sí siguió alineado. El nombre del producto va al final de la línea, después de la etiqueta de 12 espacios, así que su largo no mueve las demás líneas.
+Sí siguió alineado. El nombre del producto va al final de la línea, después de la etiqueta de 12 espacios, así que su largo no mueve las demás líneas
 
 ## 14. Generalización (Fase 4)
 
-**¿Qué cálculo hacen `calcularDescuento` y `calcularIVA`? ¿Qué cambia entre una y otra?**
-Las dos calculan un porcentaje de una cantidad: cantidad × porcentaje / 100. Solo cambian los datos: el descuento usa el subtotal y el porcentaje que escribe el usuario, y el IVA usa la base (subtotal menos descuento) y la tasa de 16 %. La operación es la misma.
+**¿Qué cálculo hacen calcularDescuento y calcularIVA? ¿Qué cambia entre una y otra?**
+Las dos calculan un porcentaje de una cantidad: cantidad × porcentaje / 100. Solo cambian los datos: el descuento usa el subtotal y el porcentaje que escribe el usuario, y el IVA usa la base (subtotal menos descuento) y la tasa de 16 %. La operación es la misma
 
-**Receta de `calcularPorcentaje`** (también va en `RECETA.md`):
+**Receta de calcularPorcentaje** (también va en RECETA.md):
 
 ```text
 MODULO calcularPorcentaje(cantidad, porcentaje)
@@ -256,79 +253,79 @@ MODULO calcularPorcentaje(cantidad, porcentaje)
     // Hace: calcula esa parte de la cantidad
     // Devuelve: el resultado en pesos
 
-    resultado ← cantidad * porcentaje / 100
+    resultado  cantidad * porcentaje / 100
     DEVOLVER resultado
 FIN MODULO
 ```
 
 **¿Cómo quedaron el descuento y el IVA después del cambio?**
-Los dos llaman a `calcularPorcentaje`. `calcularDescuento` devuelve `calcularPorcentaje(subtotal, porcentaje)` y `calcularIVA` devuelve `calcularPorcentaje(baseIVA, TASA_IVA)`. La fórmula quedó escrita en un solo lugar.
+Los dos llaman a calcularPorcentaje. calcularDescuento devuelve calcularPorcentaje(subtotal, porcentaje) y calcularIVA devuelve calcularPorcentaje(baseIVA, TASA_IVA). La fórmula quedó escrita en un solo lugar
 
 **¿Volví a correr toda la tabla de pruebas después del cambio? ¿Todo siguió pasando?**
-Sí, volví a correr los 13 casos y todo siguió pasando.
+Si, volví a correr los 13 casos y todo siguió pasando
 
-**¿Agregué `calcularPorcentaje` a mi tabla de módulos (sección 7)?** Sí
+**¿Agregué calcularPorcentaje a mi tabla de módulos (sección 7)?** Si
 
-**¿En qué otro programa podría reutilizar `calcularPorcentaje`?**
-En un programa que calcule propinas, comisiones de ventas o el porcentaje de batería de un robot.
+**¿En qué otro programa podría reutilizar calcularPorcentaje?**
+En un programa que calcule propinas, comisiones de ventas o el porcentaje de batería de un robot
 
 ## 15. Revisión de calidad (Fase 4)
 
 | Principio | Pregunta | ¿Lo cumple? | Evidencia |
 |---|---|---|---|
 | Correcto | ¿Pasa todas las pruebas de la tabla? | Sí | Los 13 casos de la sección 13 dan lo esperado |
-| Robusto | ¿Resiste datos inválidos sin fallar ni terminar? | Sí | Los ciclos `while` vuelven a pedir el dato, y las funciones de `utilerias.h` rechazan texto |
+| Robusto | ¿Resiste datos inválidos sin fallar ni terminar? | Sí | Los ciclos while vuelven a pedir el dato, y las funciones de utilerias.h rechazan texto |
 | Legible | ¿Otra persona entiende tu código sin que se lo expliques? | Sí | Nombres claros de variables y funciones, y comentarios de lo que recibe y devuelve cada función |
-| Modular | ¿Cada función hace una sola cosa? | Sí | Las funciones de cálculo solo calculan y `imprimirTicket` solo imprime |
-| Sin números mágicos | ¿Los valores fijos tienen nombre? | Sí | `TASA_IVA`, `ANCHO_TICKET` y `VENDEDOR` |
-| Fácil de mantener | Si cambia el IVA o quien atiende, ¿cuántas líneas cambias? | Sí | 1 línea para el IVA (`TASA_IVA`) y 1 línea para quien atiende (`VENDEDOR`) |
-| Reutilizable | ¿Alguna de tus funciones serviría en otro programa? | Sí | `calcularPorcentaje` y `calcularSubtotal` |
+| Modular | ¿Cada función hace una sola cosa? | Sí | Las funciones de cálculo solo calculan y imprimirTicket solo imprime |
+| Sin números mágicos | ¿Los valores fijos tienen nombre? | Sí | TASA_IVA, ANCHO_TICKET y VENDEDOR |
+| Fácil de mantener | Si cambia el IVA o quien atiende, ¿cuántas líneas cambias? | Sí | 1 línea para el IVA (TASA_IVA) y 1 línea para quien atiende (VENDEDOR) |
+| Reutilizable | ¿Alguna de tus funciones serviría en otro programa? | Sí | calcularPorcentaje y calcularSubtotal |
 
 ## 16. Reto obligatorio (Fase 4)
 
-**¿Qué reto elegí?** (número y nombre; el 4 no cuenta como obligatorio) COMPLETAR
+**¿Qué reto elegí?** tener que poner del 0 al 1 para los descuentos, con punto decimal
 
 **¿Por qué lo elegí?**
-COMPLETAR
+porque estaba facil
 
 **¿Cómo lo resolví? ¿Qué módulos agregué o cambié?**
-COMPLETAR
+solo defini que el usuario pusiera del 0 al 1 porque no funcionaba del 0 al 100
 
 **¿Hice algún otro reto opcional? ¿Cuál?**
-No aplica
+Ninguno
 
 ## 17. Bitácora de mejoras (Fase 4)
 
 | # | ¿Qué falló o qué quise mejorar? | ¿Qué cambié? | ¿Funcionó? |
 |---|---|---|---|
-| 1 | Con descuentos mayores que 0, el descuento salía enorme y el total negativo | Corregí `calcularDescuento` para dividir entre 100 | Sí |
-| 2 | Errores de compilación por errores de escritura (`TASA_ IVA: 16.0` y `desucentoMonto`) | Corregí la constante a `TASA_IVA = 16.0` y el nombre de la variable | Sí, el programa compiló |
+| 1 | Con descuentos mayores que 0, el descuento salía enorme y el total negativo | Corregí calcularDescuento para dividir entre 100 | Sí |
+| 2 | Errores de compilación por errores de escritura (TASA_ IVA: 16.0 y desucentoMonto) | Corregí la constante a TASA_IVA = 16.0 y el nombre de la variable | Sí, el programa compiló |
 
 ## 18. Dudas para el profesor (Fase 3)
 
 | Duda | Lo que ya intenté |
 |---|---|
-| No aplica | No aplica |
+| No  | No  |
 
 ## 19. Reflexión final
 
 **¿Qué aprendí con esta práctica?**
-Aprendí a dividir un programa en módulos pequeños, cada uno con una sola tarea, y a validar datos con ciclos `while`. También aprendí a leer los mensajes del compilador y a depurar paso por paso en lugar de adivinar.
+Aprendí a dividir un programa en módulos pequeños, cada uno con una sola tarea, y a validar datos con ciclos while, también aprendí a leer los mensajes del compilador y a depurar paso por paso en lugar de adivinar
 
 **Ahora que terminé, ¿qué cambiaría de mi proceso?**
-Probaría desde el principio con descuentos distintos de 0 y revisaría con más cuidado lo que escribo antes de compilar, para evitar errores de escritura.
+Probaría desde el principio con descuentos distintos de 0 y revisaría con más cuidado lo que escribo antes de compilar, para evitar errores de escritura
 
 **¿Qué fue lo más difícil y cómo lo resolví?**
-Lo más difícil fueron los errores de compilación, porque uno solo generaba varios mensajes. Lo resolví corrigiendo siempre el primer error de la lista y revisando el archivo y la línea que indicaba el compilador.
+Lo más difícil fueron los errores de compilación, porque uno solo generaba varios mensajes. Lo resolví corrigiendo siempre el primer error de la lista y revisando el archivo y la línea que indicaba el compilador
 
 **¿Qué pregunta me quedó sin responder?**
-¿Cómo se pueden agrupar los siete parámetros de `imprimirTicket` para no pasarlos uno por uno? Entiendo que se verá en la Unidad VII.
+¿Cómo se pueden agrupar los siete parámetros de imprimirTicket para no pasarlos uno por uno? Entiendo que se verá en la Unidad VII
 
-**Comparado con las prácticas anteriores, donde todo estaba en `main()`, ¿dividir el programa en módulos me facilitó o me complicó el trabajo? ¿Por qué?**
-Me facilitó el trabajo. Cuando el total salió mal, el subtotal estaba bien, y eso me dijo que el error estaba en `calcularDescuento` y no en el resto. Cada módulo se puede probar por separado.
+**Comparado con las prácticas anteriores, donde todo estaba en main(), ¿dividir el programa en módulos me facilitó o me complicó el trabajo? ¿Por qué?**
+Me facilitó el trabajo. Cuando el total salió mal, el subtotal estaba bien, y eso me dijo que el error estaba en calcularDescuento y no en el resto. Cada módulo se puede probar por separado
 
-**¿Cómo encontré el error de `calcularDescuento`? ¿Lo habría encontrado si solo hubiera probado sin descuento?**
-Lo encontré probando con 90 % de descuento: el descuento salió como $18000.00, y con una salida `[DEBUG]` vi que el valor ya estaba mal al salir de la función. Si solo hubiera probado sin descuento no lo habría encontrado, porque con 0 % el resultado es correcto aunque la fórmula esté mal.
+**¿Cómo encontré el error de calcularDescuento? ¿Lo habría encontrado si solo hubiera probado sin descuento?**
+Lo encontré probando con 90 % de descuento: el descuento salió como $18000.00, y con una salida [DEBUG] vi que el valor ya estaba mal al salir de la función. Si solo hubiera probado sin descuento no lo habría encontrado, porque con 0 % el resultado es correcto aunque la fórmula esté mal
 
 ## 20. Commits (Fase 5)
 
