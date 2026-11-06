@@ -49,7 +49,7 @@ int main() {
         imprimirTicket (nombre, precio, cantidad, subtotal, descuentoMonto, iva, total);
 
         descuentoMonto = calcularDescuento(subtotal, descuentoPorcentaje);
-std::cout << "[DEBUG] descuentoMonto = " << descuentoMonto << "\n";
+
         
     
     return 0;
